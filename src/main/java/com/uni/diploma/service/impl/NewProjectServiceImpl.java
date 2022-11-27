@@ -3,6 +3,7 @@ package com.uni.diploma.service.impl;
 import com.uni.diploma.entity.Attributes;
 import com.uni.diploma.entity.NewProject;
 import com.uni.diploma.entity.Types;
+import com.uni.diploma.repository.NewProjectRepository;
 import com.uni.diploma.repository.TypesRepository;
 import com.uni.diploma.service.NewProjectService;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,8 @@ public class NewProjectServiceImpl implements NewProjectService {
 
     TypesRepository typesRepository;
 
+    NewProjectRepository newProjectRepository;
+
     @Override
     public Set<Attributes> findAllSuitableAttributes(NewProject newProject) {
         List<Types> types = typesRepository.findAll();
@@ -34,6 +37,8 @@ public class NewProjectServiceImpl implements NewProjectService {
         for (Types type : types) {
             type.getAttributes().stream().forEach(el -> myAttributes.add(el));
         }
+        newProject.setAttributes(myAttributes);
+        newProjectRepository.save(newProject);
         return myAttributes;
     }
 

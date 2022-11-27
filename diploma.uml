@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.uni.diploma</OriginalElement>
+  <nodes>
+    <node x="0.0" y="228.0">com.uni.diploma.entity</node>
+    <node x="0.0" y="0.0">com.uni.diploma.repository</node>
+    <node x="0.0" y="152.0">com.uni.diploma.service</node>
+    <node x="0.0" y="76.0">com.uni.diploma.controller</node>
+    <node x="173.0" y="228.0">com.uni.diploma.Main</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="128.5" y="129.5" />
+  <SelectedNodes>
+    <node>com.uni.diploma.entity</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
