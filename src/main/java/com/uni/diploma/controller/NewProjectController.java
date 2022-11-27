@@ -18,9 +18,23 @@ public class NewProjectController {
 
     NewProjectService newProjectService;
 
-    @GetMapping()
-    public Set<Attributes> create(@RequestBody NewProject newProject) {
-        return newProjectService.findSuitableAttributes(newProject);
+    @GetMapping("/all")
+    public Set<Attributes> findAll(@RequestBody NewProject newProject) {
+        return newProjectService.findAllSuitableAttributes(newProject);
+    }
 
+    @GetMapping("/common")
+    public Set<Attributes> findCommon(@RequestBody NewProject newProject) {
+        return newProjectService.findCommonAttributes(newProject);
+    }
+
+    @GetMapping("/inner")
+    public Set<Attributes> findInner(@RequestBody NewProject newProject) {
+        return newProjectService.findUniqueInnerAttributes(newProject);
+    }
+
+    @GetMapping("/external")
+    public Set<Attributes> findExternal(@RequestBody NewProject newProject) {
+        return newProjectService.findUniqueExternalAttributes(newProject);
     }
 }

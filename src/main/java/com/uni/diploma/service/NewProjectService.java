@@ -7,5 +7,12 @@ import java.util.Set;
 
 public interface NewProjectService {
 
-    Set<Attributes> findSuitableAttributes(NewProject newProject);
+    Set<Attributes> findAllSuitableAttributes(NewProject newProject);
+
+    Set<Attributes> findCommonAttributes(NewProject newProject);
+
+    Set<Attributes> findUniqueInnerAttributes(NewProject newProject);
+
+    Set<Attributes> findUniqueExternalAttributes(NewProject newProject);
+
 }

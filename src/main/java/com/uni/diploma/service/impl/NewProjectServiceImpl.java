@@ -21,7 +21,7 @@ public class NewProjectServiceImpl implements NewProjectService {
     TypesRepository typesRepository;
 
     @Override
-    public Set<Attributes> findSuitableAttributes(NewProject newProject) {
+    public Set<Attributes> findAllSuitableAttributes(NewProject newProject) {
         List<Types> types = typesRepository.findAll();
         String[] myDescription = (newProject.getDescription() + " " + newProject.getName()).toLowerCase().split(" ");
 
@@ -35,5 +35,23 @@ public class NewProjectServiceImpl implements NewProjectService {
             type.getAttributes().stream().forEach(el -> myAttributes.add(el));
         }
         return myAttributes;
+    }
+
+    @Override
+    public Set<Attributes> findCommonAttributes(NewProject newProject) {
+        Set<Attributes> myAttributes = findAllSuitableAttributes(newProject);
+        return myAttributes.stream().filter(el -> el.isExternal() && el.isInternal()).collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Attributes> findUniqueInnerAttributes(NewProject newProject) {
+        Set<Attributes> myAttributes = findAllSuitableAttributes(newProject);
+        return myAttributes.stream().filter(el -> !el.isExternal() && el.isInternal()).collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Attributes> findUniqueExternalAttributes(NewProject newProject) {
+        Set<Attributes> myAttributes = findAllSuitableAttributes(newProject);
+        return myAttributes.stream().filter(el -> el.isExternal() && !el.isInternal()).collect(Collectors.toSet());
     }
 }
