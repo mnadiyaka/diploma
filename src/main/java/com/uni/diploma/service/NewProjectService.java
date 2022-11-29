@@ -14,5 +14,4 @@ public interface NewProjectService {
     Set<Attributes> findUniqueInnerAttributes(NewProject newProject);
 
     Set<Attributes> findUniqueExternalAttributes(NewProject newProject);
-
 }

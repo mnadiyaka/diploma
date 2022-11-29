@@ -1,6 +1,5 @@
 package com.uni.diploma.service.impl;
 
-import com.uni.diploma.entity.Attributes;
 import com.uni.diploma.entity.Types;
 import com.uni.diploma.repository.TypesRepository;
 import com.uni.diploma.service.AttributeService;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class TepesServiceImpl implements TypesService {
+public class TypesServiceImpl implements TypesService {
 
     private final TypesRepository typesRepository;
 

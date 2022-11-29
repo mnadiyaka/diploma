@@ -1,7 +1,6 @@
 package com.uni.diploma.service;
 
 import com.uni.diploma.entity.Types;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -21,18 +21,19 @@ public class TypesController {
     private TypesService typesService;
 
     @GetMapping("/{id}")
-    public Types getType(@PathVariable int id){
+    public Types getType(@PathVariable int id) {
         return typesService.findById(id);
     }
 
     @PostMapping("/create-{internal}")
-    public String create(@RequestBody String name, @PathVariable boolean internal) {
+    public String createTepe(@RequestBody String name, @PathVariable boolean internal) {
         typesService.createType(name, internal);
         return "created";
     }
+
     @PatchMapping("/add-{id}")
-    public String create(@PathVariable int id, @RequestBody String list){
-        list=list.trim();
+    public String addAttributes(@PathVariable int id, @RequestBody String list) {
+        list = list.trim();
         list = list.replace(" ,", ",");
         list = list.replace(", ", ",");
         List<String> nList = List.of(list.split(","));
